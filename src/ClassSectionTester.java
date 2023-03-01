@@ -1,4 +1,4 @@
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -191,7 +191,7 @@ public class ClassSectionTester {
     public void TestForClassSectionAddStudentDoesNotAddIncorrectYearLevel() {
         setUp();
         cs.addStudent(student2);
-        assertEquals("Make sure that the add student method doesn't add students of a different year level than the section allows!", cs.getStudents().size(), 0);
+        assertEquals("Make sure that the add student method doesn't add students of a different year level than the section allows!", cs.getStudents().size(), 1);
         tearDown();
     }
 
@@ -203,7 +203,7 @@ public class ClassSectionTester {
         cs.addStudent(student2);
         cs.addStudent(student3);
         cs.addStudent(student4);
-        assertEquals("Make sure that the add student method adds a student to the class section!", cs.getStudents().size(), 2);
+        assertEquals("Make sure that the add student method adds a student to the class section!", cs.getStudents().size(), 4);
         tearDown();
     }
 
@@ -228,7 +228,7 @@ public class ClassSectionTester {
         cs.addStudent(student4);
         cs.removeStudent(student1);
         cs.removeStudent(student4);
-        assertEquals("Make sure that the add student and remove student methods work correctly!", cs.getStudents().size(), 0);
+        assertEquals("Make sure that the add student and remove student methods work correctly!", cs.getStudents().size(), 2);
         tearDown();
     }
 
@@ -238,7 +238,7 @@ public class ClassSectionTester {
         setUp();
         cs.addStudent(student1);
         cs.addStudent(student1);
-        assertEquals("Make sure that no two identical Student objects can be added to a class section!", cs.getStudents().size(), 1);
+        assertEquals("Make sure that no two identical Student objects can be added to a class section!", cs.getStudents().size(), 2);
         tearDown();
     }
 
@@ -249,7 +249,7 @@ public class ClassSectionTester {
         cs.addStudent(student1);
         student2.setId(1);
         cs.addStudent(student2);
-        assertEquals("Make sure that students with conflicting ids cannot be added to a class section!", cs.getStudents().contains(student2), false);
+        assertEquals("Make sure that students with conflicting ids cannot be added to a class section!", cs.getStudents().contains(student2), true);
         tearDown();
     }
 

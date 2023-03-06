@@ -51,7 +51,19 @@ public class ClassSection {
 
     public void addStudent(Student other)
     {
-        students.add(other);
+        boolean alreadyExists = false;
+        for(Student currStudent : students)
+        {
+            if(currStudent == other)
+            {
+                alreadyExists = true;
+            }
+        }
+
+        if((!alreadyExists) && other.getYearLevel() == yearLevel)
+        {
+            students.add(other);
+        }
     }
 
     public void removeStudent(Student other)
